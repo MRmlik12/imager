@@ -1,9 +1,14 @@
-﻿using CommandLine;
-using Imager.Cli.Commands;
-using Imager.Cli.Options;
+﻿using Imager.Cli.Commands;
+using Spectre.Console;
+using Spectre.Console.Cli;
 
-Parser.Default.ParseArguments<ResizeOptions>(args)
-    .MapResult(
-        options => new ResizeCommand().Handle(options),
-        errs => 1
-    );
+var app = new CommandApp();
+
+app.Configure(config =>
+{
+    config.AddCommand<ResizeCommand>("resize");
+
+    config.SetExceptionHandler(ex => { AnsiConsole.WriteException(ex, ExceptionFormats.ShortenEverything); });
+});
+
+app.Run(args);

@@ -1,16 +1,19 @@
-﻿using CommandLine;
+﻿using System.ComponentModel;
+using Spectre.Console.Cli;
 
 namespace Imager.Cli.Options;
 
-[Verb("crop", HelpText = "Crop the image ")]
-public class ResizeOptions
+public class ResizeOptions : CommandSettings
 {
-    [Option('p', "sourcePath", Required = true, HelpText = "Source image file")]
-    public string SourcePath { get; set; } = null!;
+    [Description("Source image file")]
+    [CommandOption("-p |--path")]
+    public string SourcePath { get; init; } = null!;
 
-    [Option('r', "resolution", Required = true, HelpText = "Resolution of cropped image ex. 1280x720")]
-    public string Resolution { get; set; } = null!;
+    [Description("Size of cropped image ex. 1280x720")]
+    [CommandOption("-s|--size")]
+    public string Size { get; init; } = null!;
 
-    [Option('o', "outputPath", Required = true, HelpText = "Cropped image output path")]
-    public string OutputPath { get; set; } = null!;
+    [Description("Output path of produced image")]
+    [CommandOption("-o|--output")]
+    public string OutputPath { get; init; } = null!;
 }
