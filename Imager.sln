@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{17FE1409-7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imager.UnitTests", "test\Imager.UnitTests\Imager.UnitTests.csproj", "{930213FF-DB54-4E68-8E18-56E0A5182971}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imager.Backend", "src\Imager.Backend\Imager.Backend.csproj", "{D30EC73C-8F6C-47F1-9439-C2954C75D544}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,9 +30,14 @@ Global
 		{930213FF-DB54-4E68-8E18-56E0A5182971}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{930213FF-DB54-4E68-8E18-56E0A5182971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{930213FF-DB54-4E68-8E18-56E0A5182971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D30EC73C-8F6C-47F1-9439-C2954C75D544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D30EC73C-8F6C-47F1-9439-C2954C75D544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D30EC73C-8F6C-47F1-9439-C2954C75D544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D30EC73C-8F6C-47F1-9439-C2954C75D544}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{86A9E74E-1326-4B66-9047-17214AB82C3D} = {5D00AEDD-9F88-4A08-8C88-6CA732E7B0A0}
 		{930213FF-DB54-4E68-8E18-56E0A5182971} = {17FE1409-755F-45F1-B195-0C704EA9666A}
+		{D30EC73C-8F6C-47F1-9439-C2954C75D544} = {5D00AEDD-9F88-4A08-8C88-6CA732E7B0A0}
 	EndGlobalSection
 EndGlobal
