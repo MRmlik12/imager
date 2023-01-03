@@ -7,7 +7,7 @@ using Spectre.Console.Cli;
 
 namespace Imager.Cli.Commands;
 
-public class ResizeCommand : Command<ResizeOptions>
+internal class ResizeCommand : Command<ResizeOptions>
 {
     public override int Execute(CommandContext context, ResizeOptions settings)
     {

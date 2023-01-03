@@ -3,7 +3,7 @@ using Spectre.Console.Cli;
 
 namespace Imager.Cli.Options;
 
-public class ResizeOptions : CommandSettings
+internal class ResizeOptions : CommandSettings
 {
     [Description("Source image file")]
     [CommandOption("-p |--path")]
