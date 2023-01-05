@@ -7,6 +7,7 @@ var app = new CommandApp();
 app.Configure(config =>
 {
     config.AddCommand<ResizeCommand>("resize");
+    config.AddCommand<ConvertCommand>("convert");
 
     config.SetExceptionHandler(ex => { AnsiConsole.WriteException(ex, ExceptionFormats.ShortenEverything); });
 });
