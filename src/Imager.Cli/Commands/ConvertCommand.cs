@@ -1,5 +1,5 @@
-﻿using Imager.Backend.Conversion;
-using Imager.Backend.Exceptions;
+﻿using Imager.Backend.Exceptions;
+using Imager.Backend.Operations;
 using Imager.Backend.Validate;
 using Imager.Cli.Options;
 using Spectre.Console;

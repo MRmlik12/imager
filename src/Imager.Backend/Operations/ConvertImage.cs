@@ -1,6 +1,6 @@
 ﻿using NetVips;
 
-namespace Imager.Backend.Conversion;
+namespace Imager.Backend.Operations;
 
 public static class ConvertImage
 {

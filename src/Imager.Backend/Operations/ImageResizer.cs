@@ -1,6 +1,6 @@
 ﻿using NetVips;
 
-namespace Imager.Backend.Scale;
+namespace Imager.Backend.Operations;
 
 public static class ImageResizer
 {

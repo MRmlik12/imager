@@ -1,4 +1,4 @@
-﻿using Imager.Backend.Conversion;
+﻿using Imager.Backend.Operations;
 
 namespace Imager.UnitTests.Backend;
 
