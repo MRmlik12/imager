@@ -13,13 +13,13 @@ internal class ContrastCommand : Command<ContrastOptions>
     {
         if (!PathValidator.ValidatePath(settings.SourcePath))
             throw new ItemNotExistsException();
-        
+
         var fileName = Path.GetFileName(settings.SourcePath);
-        
+
         AnsiConsole.MarkupLine($"Adjusting contrast of {fileName} image...");
         ImageContrast.Setup(settings.SourcePath, settings.OutputPath, settings.ContrastLevel);
         AnsiConsole.MarkupLine("[green]Done[/]  :check_mark_button:");
-        
+
         return 0;
     }
 }
