@@ -1,5 +1,5 @@
-﻿using Imager.Backend.Conversion;
-using Imager.Backend.Exceptions;
+﻿using Imager.Backend.Exceptions;
+using Imager.Backend.Operations;
 using Imager.Backend.Validate;
 using Imager.Cli.Options;
 using Spectre.Console;
@@ -15,7 +15,7 @@ public class ConvertCommand : Command<ConvertOptions>
             throw new ItemNotExistsException();
 
         var extension = Path.GetExtension(settings.OutputPath);
-        
+
         AnsiConsole.MarkupLine($"Converting an image to {extension}...");
         ConvertImage.Convert(settings.SourcePath, settings.OutputPath, settings.Quality);
         AnsiConsole.MarkupLine("[underline green]Done[/]  :check_mark_button:");
