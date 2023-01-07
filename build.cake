@@ -45,6 +45,7 @@ Task("Build")
             NoRestore = true,
             Runtime = runtime,
             OutputDirectory = "./build",
+            SelfContained = true,
             Verbosity = DotNetVerbosity.Detailed
         });
     });
@@ -61,7 +62,13 @@ Task("Zip")
 Task("Clean")
     .Does(() => 
     {
-        DeleteDirectory("./build", new DeleteDirectorySettings
+        var directories = new DirectoryPath[]
+        {
+            Directory("build"),
+            Directory("publish")
+        };
+
+        DeleteDirectories(directories, new DeleteDirectorySettings
         {
             Force = true,
             Recursive = true
