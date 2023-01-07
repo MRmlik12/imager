@@ -3,23 +3,12 @@ var configuration = Argument("configuration", "Release");
 
 string GetOsPlatform()
 {
-    var os = Environment.OSVersion;
-
-    var runtime = string.Empty;
-    switch (os.Platform)
+    return Environment.OSVersion.Platform switch
     {
-        case PlatformID.Win32NT:
-            runtime = "win-x64";
-            break;
-        case PlatformID.Unix:
-            runtime = "linux-x64";
-            break;
-        case PlatformID.MacOSX:
-            runtime = "osx-x64";
-            break;
-    }
-
-    return runtime;
+        PlatformID.Win32NT => "win-x64",
+        PlatformID.Unix => "linux-x64",
+        PlatformID.MacOSX => "osx-x64"
+    };
 }
 
 Task("Setup")
@@ -46,6 +35,7 @@ Task("Build")
             Runtime = runtime,
             OutputDirectory = "./build",
             SelfContained = true,
+            PublishSingleFile = true,
             Verbosity = DotNetVerbosity.Detailed
         });
     });
