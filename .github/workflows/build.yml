@@ -1,0 +1,24 @@
+name: Test
+on:
+  push:
+jobs:
+  dev:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macOS-latest]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Run the Cake script
+        uses: cake-build/cake-action@v1
+        with:
+          target: BuildAllPlatforms
+          script-path: build.cake
+          verbosity: Verbose
+      - uses: actions/upload-artifact@v3
+        with:
+          path: ./publish/*
