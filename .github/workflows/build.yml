@@ -16,7 +16,6 @@ jobs:
       - name: Run the Cake script
         uses: cake-build/cake-action@v1
         with:
-          target: BuildAllPlatforms
           script-path: build.cake
           verbosity: Verbose
       - uses: actions/upload-artifact@v3
