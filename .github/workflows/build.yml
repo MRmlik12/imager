@@ -4,10 +4,6 @@ on:
 jobs:
   dev-linux:
       runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          os: [windows-latest, ubuntu-latest, macOS-latest]
-          platforms: [ win, linux, osx ]
       steps:
         - uses: actions/checkout@v3
         - name: Setup .NET SDK
