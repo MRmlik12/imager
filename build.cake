@@ -7,8 +7,8 @@ string[] GetOsPlatform()
     return Environment.OSVersion.Platform switch
     {
         PlatformID.Win32NT => new [] { "win-x64" },
-        PlatformID.Unix => new [] { "linux-x64", "linux-arm64" },
-        PlatformID.MacOSX => new [] { "osx-arm64", "osx-x64" }
+        PlatformID.MacOSX => new [] { "osx-arm64", "osx-x64" },
+        _ => new [] { "linux-x64", "linux-arm64" }
     };
 }
 
