@@ -1,4 +1,3 @@
-#addin nuget:?package=Cake.Git&version=2.0.0
 var target = Argument("target", "Build");
 var configuration = Argument("configuration", "Release");
 
@@ -14,8 +13,7 @@ string[] GetOsPlatform()
 
 void ZipDevRelease(string platform)
 {
-    var lastCommit = GitLogTip(".");
-    Zip($"./build/{platform}", $"./publish/imager-{platform}-{lastCommit.Sha}.zip");
+    Zip($"./build/{platform}", $"./publish/imager-{platform}.zip");
 }
 
 Task("Setup")
