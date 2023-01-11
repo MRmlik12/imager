@@ -9,6 +9,7 @@ app.Configure(config =>
     config.AddCommand<ResizeCommand>("resize");
     config.AddCommand<ConvertCommand>("convert");
     config.AddCommand<ContrastCommand>("contrast");
+    config.AddCommand<AboutCommand>("about");
 
     config.SetExceptionHandler(ex => { AnsiConsole.WriteException(ex, ExceptionFormats.ShortenEverything); });
 });
