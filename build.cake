@@ -3,12 +3,14 @@ var configuration = Argument("configuration", "Release");
 
 string[] GetOsPlatform()
 {
-    return Environment.OSVersion.Platform switch
+    if (OperatingSystem.IsMacOS())
     {
-        PlatformID.Win32NT => new [] { "win-x64" },
-        PlatformID.MacOSX => new [] { "osx-arm64", "osx-x64" },
-        _ => new [] { "linux-x64", "linux-arm64" }
-    };
+        return new [] { "osx-arm64", "osx-x64" };
+    } else if (OperatingSystem.IsWindows()) {
+        return new [] { "win-x64" };
+    }
+    
+    return new [] { "linux-x64", "linux-arm64" };
 }
 
 void ZipDevRelease(string platform)

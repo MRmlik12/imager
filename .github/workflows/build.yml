@@ -42,12 +42,12 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: imager-osx-x64
-          path: ./publish/imager-osx-x64
+          path: ./publish/imager-osx-x64.zip
       - name: Upload ARM version
         uses: actions/upload-artifact@v3
         with:
           name: imager-osx-arm64
-          path: ./publish/imager-osx-arm64
+          path: ./publish/imager-osx-arm64.zip
   dev-win:
     runs-on: windows-latest
     steps:
@@ -65,5 +65,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: imager-win-x64
-          path: ./publish/imager-win-x64
+          path: ./publish/imager-win-x64.zip
 
