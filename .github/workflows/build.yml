@@ -1,0 +1,69 @@
+name: Build
+on:
+  push:
+jobs:
+  dev-linux:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - name: Setup .NET SDK
+          uses: actions/setup-dotnet@v3
+          with:
+            dotnet-version: 7.0.x
+        - name: Run the Cake script
+          uses: cake-build/cake-action@v1
+          with:
+            script-path: build.cake
+            verbosity: Verbose
+        - name: Upload x64 version
+          uses: actions/upload-artifact@v3
+          with:
+            name: imager-linux-x64
+            path: ./publish/imager-linux-x64.zip
+        - name: Upload ARM version
+          uses: actions/upload-artifact@v3
+          with:
+            name: imager-linux-arm64
+            path: ./publish/imager-linux-arm64.zip
+  dev-osx:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Run the Cake script
+        uses: cake-build/cake-action@v1
+        with:
+          script-path: build.cake
+          verbosity: Verbose
+      - name: Upload x64 version
+        uses: actions/upload-artifact@v3
+        with:
+          name: imager-osx-x64
+          path: ./publish/imager-osx-x64.zip
+      - name: Upload ARM version
+        uses: actions/upload-artifact@v3
+        with:
+          name: imager-osx-arm64
+          path: ./publish/imager-osx-arm64.zip
+  dev-win:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Run the Cake script
+        uses: cake-build/cake-action@v1
+        with:
+          script-path: build.cake
+          verbosity: Verbose
+      - name: Upload x64 version
+        uses: actions/upload-artifact@v3
+        with:
+          name: imager-win-x64
+          path: ./publish/imager-win-x64.zip
+
