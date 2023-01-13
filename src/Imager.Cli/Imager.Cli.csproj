@@ -8,7 +8,7 @@
         <Version>0.1.0</Version>
         <AssemblyVersion>0.1.0</AssemblyVersion>
         <FileVersion>0.1.0</FileVersion>
-        <AssemblyName>Imager</AssemblyName>
+        <AssemblyName>imager</AssemblyName>
         <RuntimeIdentifiers>win-x64;osx-x64;osx-arm64;linux-x64;linux-arm64</RuntimeIdentifiers>
     </PropertyGroup>
 
