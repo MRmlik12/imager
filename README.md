@@ -5,7 +5,7 @@ pretty simple tool to manipulate image in CLI
 
 ## Usage
 
-### Suppoted formats
+### Suppoted image formats
 JPEG, TIFF, PNG, WebP, FITS, Matlab, OpenEXR, PDF, SVG, HDR, PPM, CSV, GIF, Analyze, NIfTI, DeepZoom, OpenSlide
 
 1. Resize an image
