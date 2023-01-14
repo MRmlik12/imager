@@ -1,5 +1,7 @@
 # imager
 [![Test](https://github.com/MRmlik12/imager/actions/workflows/app.yml/badge.svg?branch=main)](https://github.com/MRmlik12/imager/actions/workflows/app.yml)
+[![Release](https://github.com/MRmlik12/imager/actions/workflows/release.yml/badge.svg)](https://github.com/MRmlik12/imager/actions/workflows/release.yml)
+[![Discord](https://discord.com/api/guilds/833257104646733844/widget.png?style=shield)](https://discord.gg/djrjH4Sppt)
 
 pretty simple tool to manipulate image in CLI
 
