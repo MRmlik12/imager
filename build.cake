@@ -1,5 +1,6 @@
 var target = Argument("target", "Build");
 var configuration = Argument("configuration", "Release");
+var version = Argument("tag", "");
 
 string[] GetOsPlatform()
 {
@@ -13,9 +14,15 @@ string[] GetOsPlatform()
     return new [] { "linux-x64", "linux-arm64" };
 }
 
-void ZipDevRelease(string platform)
+void ZipBuild(string platform, string version = "")
 {
-    Zip($"./build/{platform}", $"./publish/imager-{platform}.zip");
+    string fileName;
+    if (version == "")
+        fileName = $"./publish/imager-{platform}.zip";
+    else
+        fileName = $"./publish/imager-{version}-{platform}.zip";
+
+    Zip($"./build/{platform}", fileName);
 }
 
 Task("Setup")
@@ -49,7 +56,10 @@ Task("Build")
                 Verbosity = DotNetVerbosity.Detailed
             });
 
-            ZipDevRelease(runtime);
+            if (version == "")
+                ZipBuild(runtime);
+            else
+                ZipBuild(runtime, version);
         }
     });
 
