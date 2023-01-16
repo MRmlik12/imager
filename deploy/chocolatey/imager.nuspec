@@ -10,7 +10,7 @@
     <licenseUrl>https://github.com/MRmlik12/imager/blob/main/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/MRmlik12/imager</projectSourceUrl>
-    <tags>image;resize;tool;</tags>
+    <tags>image;resize;tool;cli</tags>
     <summary>pretty simple tool to manipulate image in CLI</summary>
     <description>pretty simple tool to manipulate image in CLI</description>
   </metadata>
