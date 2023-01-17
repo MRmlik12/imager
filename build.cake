@@ -17,7 +17,7 @@ string[] GetOsPlatform()
 void ZipBuild(string platform, string version = "")
 {
     string fileName;
-    if (version == "")
+    if (string.IsNullOrEmpty(version))
         fileName = $"./publish/imager-{platform}.zip";
     else
         fileName = $"./publish/imager-{version}-{platform}.zip";
@@ -61,6 +61,25 @@ Task("Build")
             else
                 ZipBuild(runtime, version);
         }
+    }); 
+
+Task("BuildChocolateyPackage")
+    .Does(() =>
+    {
+        if (!OperatingSystem.IsWindows()) {
+            Error("Chocolatey package build only works on Windows platform");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(version))
+            CopyFile("./publish/imager-win-x64.zip", "./deploy/chocolatey/tools/imager-win-x64.zip");
+        else
+            CopyFile($"./publish/imager-{version}-win-x64.zip", $"./deploy/chocolatey/tools/imager-{version}-win-x64.zip");
+
+        ChocolateyPack("./deploy/chocolatey/imager.nuspec", new ChocolateyPackSettings
+        {
+            Verbose = true
+        });
     });
 
 Task("Clean")

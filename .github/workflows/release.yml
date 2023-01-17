@@ -12,12 +12,20 @@ jobs:
           uses: actions/setup-dotnet@v3
           with:
             dotnet-version: 7.0.x
-        - name: Run the Cake script
+        - name: Run the Cake cake-build/cake-action script
           uses: cake-build/cake-action@v1
           with:
             script-path: build.cake
             verbosity: Verbose
             arguments: |
+              tag: ${{ github.ref_name }}
+        - name: Run the Cake BuildChocolateyPackage script
+          uses: cake-build/cake-action@v1
+          with:
+            script-path: build.cake
+            verbosity: Verbose
+            arguments: |
+              target: BuildChocolateyPackage
               tag: ${{ github.ref_name }}
         - name: Release files
           uses: softprops/action-gh-release@v1
@@ -26,6 +34,7 @@ jobs:
             files: |
               ./publish/imager-${{ github.ref_name }}-linux-x64.zip
               ./publish/imager-${{ github.ref_name }}-linux-arm64.zip
+              ./imager.*.nupkg
   deploy-osx:
     runs-on: macos-latest
     steps:
